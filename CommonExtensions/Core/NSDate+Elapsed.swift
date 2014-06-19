@@ -1,0 +1,102 @@
+//
+//  NSDate+Elapsed.swift
+//  CommonExtensions_test
+//
+//  Created by Joe Burgess on 6/18/14.
+//  Copyright (c) 2014 Joe Burgess. All rights reserved.
+//
+
+import Foundation
+
+extension NSDate {
+    
+    /**
+    * Returns the date components (Years, Months, Days, Hours, Minutes, Seconds) between the two specified dates.
+    *
+    * @param fromDate Start date
+    * @param toDate End Date
+    *
+    * @return Components between the two dates
+    */
+    class func elapsedDateComponentsFromDate(fromDate:NSDate, toDate:NSDate) -> NSDateComponents {
+
+        // Default componenets
+        let desiredComponents:NSCalendarUnit =  .YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit |
+                                                .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit;
+        
+        // Elapsed Time units
+        let elapsedTimeUnits:NSDateComponents = NSCalendar.currentCalendar().components(desiredComponents, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.MatchFirst);
+        
+        return elapsedTimeUnits;
+    }
+    
+    /**
+    * Returns the string representing the time between the two dates, with a default scan format (ex. Created 10 minutes ago)
+    *
+    * @param fromDate Start date
+    * @param toDate End Date
+    *
+    * @return string representing time between the two dates
+    */
+    class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate) -> String {
+        return self.elapsedTimeFromDate(fromDate, toDate:toDate, scannedFormat:"Created %d %@ ago");
+    }
+    
+    
+    /**
+    * Returns a simplified string representing the time between the two dates
+    *
+    * @param fromDate Start date
+    * @param End Date
+    * @param User defined format (Must contain %d and %@ in string, in order)
+    *
+    * @return string representing time between the two dates
+    */
+    class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate, scannedFormat:String) -> String {
+        
+        let elapsedTimeUnits:NSDateComponents = self.elapsedDateComponentsFromDate(fromDate, toDate: toDate);
+        
+        // The number and the unit
+        var number:Int = 0;
+        var unit:String;
+        
+        // Get our highest unit as return string
+        if (elapsedTimeUnits.year > 0) {
+            number = elapsedTimeUnits.year;
+            unit = "year";
+        }
+        else if (elapsedTimeUnits.month > 0) {
+            number = elapsedTimeUnits.month;
+            unit = "month";
+        }
+        else if (elapsedTimeUnits.day >= 7) {
+            number = elapsedTimeUnits.day / 7;
+            unit = "week";
+        }
+        else if (elapsedTimeUnits.day > 0) {
+            number = elapsedTimeUnits.day;
+            unit = "day";
+        }
+        else if (elapsedTimeUnits.hour > 0) {
+            number = elapsedTimeUnits.hour;
+            unit = "hour";
+        }
+        else if (elapsedTimeUnits.minute > 0) {
+            number = elapsedTimeUnits.minute;
+            unit = "minute";
+        }
+        else  {
+            number = elapsedTimeUnits.second;
+            unit = "second";
+        }
+        
+        // Check if unit number is greater than 1, if so append s at the end
+        if (number > 1) {
+            unit = String(format:"%@s", unit);
+        }
+        
+        // Return elapsed time using the scanned format
+        return String(format:scannedFormat, number, unit);
+    }
+    
+}
