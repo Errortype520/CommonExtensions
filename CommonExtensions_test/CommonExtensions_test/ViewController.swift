@@ -25,8 +25,30 @@ class ViewController: UIViewController {
         
         self.stringTest();
         
+        println("\n+------------------------------");
+        println(" UICOLOR TEST");
+        
+        self.uiColorHexTest();
         
     }
+    
+    // MARK: UIKit Tests
+    
+    func uiColorHexTest() {
+        
+        // Change the background to RED
+        self.view.backgroundColor = UIColor.colorWithHex(0xFF0000);
+        
+        println("\nBackground color changed to RED (0xFF0000");
+        
+        // Change the background color back to white using hex color as a string
+        self.view.backgroundColor = UIColor.colorWithHexString("#FFFFFF");
+        
+        println("Background color changed back to WHITE (0xFFFFFF)");
+    }
+    
+    
+    // MARK: Core Tests
     
     func stringTest() {
         

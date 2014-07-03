@@ -1,5 +1,5 @@
 //
-//  NSDate+JSON.swift
+//  UIColor+Hex.swift
 //  CommonExtensions
 //
 //  Copyright (c) 2014 Joe Burgess
@@ -18,31 +18,45 @@
 //  THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import Foundation
+import UIKit
 
-extension NSDate {
-
+extension UIColor {
+    
     /**
-    * Parses JSON Date and returns an NSDate.
+    * Convert HEX color to UIColor
     *
-    * @param jsonDate The JSON formatted date string
+    * @param the HEX value
     *
-    * @return NSDate created from JSON Date string.
+    * @return UIColor created from HEX
     */
-    class func dateFromJSONString(jsonDate:String) -> NSDate {
+    class func colorWithHex(color:UInt) -> UIColor {
         
-        var adjustedDate:String = jsonDate;
+        return UIColor( red:    ((Float)((color & 0xFF0000) >> 16))/255.0,
+                        green:  ((Float)((color & 0xFF00) >> 8))/255.0,
+                        blue:   ((Float)((color & 0xFF)))/255.0,
+                        alpha:  1.0);
+    }
+    
+    /**
+    * Convert HEX color as String to UIColor
+    *
+    * @param the HEX value as a String
+    *
+    * @return UIColor created from HEX
+    */
+    class func colorWithHexString(color:String) -> UIColor {
         
-        // Replace offset 'T' with a space
-        adjustedDate = adjustedDate.stringByReplacingOccurrencesOfString("T", withString:" ");
-        // Replace zulu 'Z' with timezone (+0000)
-        adjustedDate = adjustedDate.stringByReplacingOccurrencesOfString("Z", withString:"+0000");
+        var result:UIColor;
+        var value:CUnsignedInt = 0;
+        var hexString:String = color.stringByReplacingOccurrencesOfString("#", withString:"0x");
         
-        // Create the dateformatter we will use to parse the JSON date
-        var dateFormatter:NSDateFormatter = NSDateFormatter();
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss:SSSZZZ";
+        // If scanner is able to convert the string to UInt
+        if ( NSScanner.scannerWithString(hexString).scanHexInt(&value) ) {
+            return self.colorWithHex(UInt(value));
+        }
         
-        return dateFormatter.dateFromString(adjustedDate);
+        // Default return clear color if parsing color fails
+        return UIColor.clearColor();
     }
     
 }
