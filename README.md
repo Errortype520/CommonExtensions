@@ -38,6 +38,25 @@ println("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( fromDate, toDate:
 // RESEULT: Elapsed Time (month): Created 1 month ago
 ```
 
+####String+Extensions
+String extensions adds common length variable and a remove white space method.
+```swift
+var testString = "                      This is a string. ";
+var testStringTrim = testString.removeWhiteSpace();
+
+println("Test String: " + testString);
+println("Test String (white space removed): " + testStringTrim);
+
+println("Test String Length: \(testString.length)");
+println("Test String Length (white space removed): \(testStringTrim.length)");
+
+// RESULT: Test String:                       This is a string.  
+// RESULT: Test String (white space removed): This is a string.
+// RESULT: Test String Length: 39
+// RESULT: Test String Length (white space removed): 17
+```
+
+
 ####License
 
 Copyright (c) 2014 Joe Burgess
