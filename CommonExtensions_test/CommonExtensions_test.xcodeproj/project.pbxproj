@@ -15,7 +15,7 @@
 		D8AE872D1950B86A00FE0AB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AE872C1950B86A00FE0AB6 /* ViewController.swift */; };
 		D8AE87301950B86A00FE0AB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AE872E1950B86A00FE0AB6 /* Main.storyboard */; };
 		D8AE87321950B86A00FE0AB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8AE87311950B86A00FE0AB6 /* Images.xcassets */; };
-		D8F5A9D4195378D500ADB367 /* NSString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A9D3195378D500ADB367 /* NSString+Extension.swift */; };
+		D8F5A9D4195378D500ADB367 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F5A9D3195378D500ADB367 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		D8AE872F1950B86A00FE0AB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8AE87311950B86A00FE0AB6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D8AE87371950B86A00FE0AB6 /* CommonExtensions_testTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommonExtensions_testTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D8F5A9D3195378D500ADB367 /* NSString+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Extension.swift"; sourceTree = "<group>"; };
+		D8F5A9D3195378D500ADB367 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +91,7 @@
 				D80E5B3B1950C55E00B1BEF0 /* NSDate+Locale.swift */,
 				D80BADBB1951EB6E007269AE /* NSDate+JSON.swift */,
 				D80BADBD1951EDED007269AE /* NSDate+Elapsed.swift */,
-				D8F5A9D3195378D500ADB367 /* NSString+Extension.swift */,
+				D8F5A9D3195378D500ADB367 /* String+Extension.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 				D86414A11964EEC30035287B /* UIColor+Hex.swift in Sources */,
 				D80BADBC1951EB6E007269AE /* NSDate+JSON.swift in Sources */,
 				D80BADBE1951EDED007269AE /* NSDate+Elapsed.swift in Sources */,
-				D8F5A9D4195378D500ADB367 /* NSString+Extension.swift in Sources */,
+				D8F5A9D4195378D500ADB367 /* String+Extension.swift in Sources */,
 				D80E5B3D1950C55E00B1BEF0 /* NSDate+Locale.swift in Sources */,
 				D8AE872D1950B86A00FE0AB6 /* ViewController.swift in Sources */,
 				D8AE872B1950B86A00FE0AB6 /* AppDelegate.swift in Sources */,

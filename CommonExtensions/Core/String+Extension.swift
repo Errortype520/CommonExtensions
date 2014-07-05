@@ -22,7 +22,7 @@ import Foundation
 
 extension String {
     
-    /// Number of items in string
+    /// Number of characters in string
     var length:Int { get{ return countElements(self) } };
     
     /**
