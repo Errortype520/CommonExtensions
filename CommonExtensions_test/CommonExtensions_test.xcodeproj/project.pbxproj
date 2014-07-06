@@ -11,6 +11,7 @@
 		D80BADBE1951EDED007269AE /* NSDate+Elapsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BADBD1951EDED007269AE /* NSDate+Elapsed.swift */; };
 		D80E5B3D1950C55E00B1BEF0 /* NSDate+Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E5B3B1950C55E00B1BEF0 /* NSDate+Locale.swift */; };
 		D86414A11964EEC30035287B /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86414A01964EEC30035287B /* UIColor+Hex.swift */; };
+		D86414A31968C4700035287B /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86414A21968C4700035287B /* UIImage+Color.swift */; };
 		D8AE872B1950B86A00FE0AB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AE872A1950B86A00FE0AB6 /* AppDelegate.swift */; };
 		D8AE872D1950B86A00FE0AB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AE872C1950B86A00FE0AB6 /* ViewController.swift */; };
 		D8AE87301950B86A00FE0AB6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8AE872E1950B86A00FE0AB6 /* Main.storyboard */; };
@@ -47,6 +48,7 @@
 		D80BADBD1951EDED007269AE /* NSDate+Elapsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Elapsed.swift"; sourceTree = "<group>"; };
 		D80E5B3B1950C55E00B1BEF0 /* NSDate+Locale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Locale.swift"; sourceTree = "<group>"; };
 		D86414A01964EEC30035287B /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
+		D86414A21968C4700035287B /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		D8AE87251950B86A00FE0AB6 /* CommonExtensions_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommonExtensions_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8AE87291950B86A00FE0AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8AE872A1950B86A00FE0AB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				D86414A01964EEC30035287B /* UIColor+Hex.swift */,
+				D86414A21968C4700035287B /* UIImage+Color.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D86414A11964EEC30035287B /* UIColor+Hex.swift in Sources */,
+				D86414A31968C4700035287B /* UIImage+Color.swift in Sources */,
 				D80BADBC1951EB6E007269AE /* NSDate+JSON.swift in Sources */,
 				D80BADBE1951EDED007269AE /* NSDate+Elapsed.swift in Sources */,
 				D8F5A9D4195378D500ADB367 /* String+Extension.swift in Sources */,

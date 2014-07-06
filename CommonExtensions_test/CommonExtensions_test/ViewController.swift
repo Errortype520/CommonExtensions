@@ -30,9 +30,40 @@ class ViewController: UIViewController {
         
         self.uiColorHexTest();
         
+        println("\n+------------------------------");
+        println(" UIIMAGE TEST");
+        
+        self.uiImageColorTest();
     }
     
     // MARK: UIKit Tests
+    
+    func uiImageColorTest() {
+        
+        // Create a red square image
+        let redImage:UIImage = UIImage.imageFromColor(UIColor.redColor());
+        let redImageView:UIImageView = UIImageView(image: redImage);
+        
+        // Add the red image to the view
+        self.view.addSubview(redImageView);
+        
+        println("\nRed 1x1 image added at (0,0)");
+        
+        let blueImage:UIImage = UIImage.imageFromColor(UIColor.blueColor(), imageSize: CGSizeMake(10, 10));
+        let blueImageView:UIImageView = UIImageView(frame: CGRectMake(1, 0, 10, 10));
+        
+        // Add the larger blue image to the view
+        blueImageView.image = blueImage;
+        self.view.addSubview(blueImageView)
+        
+        println("Blue 10x10 image added at (1,0)");
+        
+        // Clean up
+        redImageView.removeFromSuperview();
+        blueImageView.removeFromSuperview();
+        
+        println("Cleanup -- Image Views removed");
+    }
     
     func uiColorHexTest() {
         
