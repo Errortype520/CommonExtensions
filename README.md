@@ -3,6 +3,26 @@ CommonExtensions
 
 Common Extensions for Swift Alpha 0.1
 
+####UIColor+Hex
+Create UIColor with Hex values
+```swift
+// Change the background to RED
+self.view.backgroundColor = UIColor.colorWithHex(0xFF0000);
+
+// Change the background color back to white using hex color as a string
+self.view.backgroundColor = UIColor.colorWithHexString("#FFFFFF");
+```
+
+####UIImage+Color
+Creates a UIImage with a solid color. Can specify a image size (Defaults to 1x1).
+```swift
+// Create a red square image (1x1)
+let redImage:UIImage = UIImage.imageFromColor(UIColor.redColor());
+
+// Create a blue square image (10x10)
+let blueImage:UIImage = UIImage.imageFromColor(UIColor.blueColor(), imageSize: CGSizeMake(10, 10));
+```
+
 ####NSDate+Locale
 NSDate+Locale contains convenience methods to get the current date as a String in different formats.
 ```swift
