@@ -34,9 +34,50 @@ class ViewController: UIViewController {
         println(" UIIMAGE TEST");
         
         self.uiImageColorTest();
+        self.uiImageResizeTest();
     }
     
     // MARK: UIKit Tests
+    
+    func uiImageResizeTest() {
+        
+        // Create an image
+        var testImage:UIImage = UIImage(named:"puppy-running.png");
+        
+        // Resize height test
+        // testImage = UIImage.resizeWithImage(testImage, height: 50);
+        
+        println("\nImage resized by height");
+        
+        // Resize width test
+        // testImage = UIImage.resizeWithImage(testImage, width:100);
+        
+        println("Image resized by width");
+        
+        // Resize scale test
+        // testImage = UIImage.resizeWithImage(testImage, scale:0.5);
+        
+        println("Image resized by scale");
+        
+        // Resize rect test
+        // testImage = UIImage.resizeWithImage(testImage, rect:CGRectMake(0, 0, 150, 40));
+        
+        println("Image resized by rect");
+        
+        // Crop image test
+        // testImage = UIImage.cropWithImage(testImage, rect: CGRectMake(0, 0, 100, 100));
+        
+        println("Image cropped to rect");
+        
+        // Create the image view and add as a subview to view
+        let testImageView:UIImageView = UIImageView(image:testImage);
+        self.view.addSubview(testImageView);
+        
+        // Clean up image
+        testImageView.removeFromSuperview();
+        
+        println("Cleanup -- Image Views removed");
+    }
     
     func uiImageColorTest() {
         

@@ -22,6 +22,14 @@ import UIKit
 
 extension UIImage {
     
+    /** 
+    * Creates an image from a UIColor.
+    *
+    * @param UIColor used for the image
+    * @param Size to make the image
+    *
+    * @return UIImage created from color.
+    */
     class func imageFromColor(color:UIColor, imageSize:CGSize = CGSizeMake(1, 1) ) -> UIImage {
         
         // Create a rectangle with our size
