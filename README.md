@@ -3,6 +3,35 @@ CommonExtensions
 
 Common Extensions for Swift Alpha 0.1
 
+####UIView+SnapShot
+Captures a snapshot of a UIView.
+```swift
+// Take a snapshot
+let snapshot:UIImage = captureMeView.captureSnapShot();
+```
+
+####UIImage+Resize
+Resize and crop UIImage when you need to manipulate a UIImage, and not just it's UIImageView.
+```swift
+// Create an image
+var testImage:UIImage = UIImage(named:"puppy-running.png");
+
+// Resize the image proportionately with a height
+testImage = UIImage.resizeWithImage(testImage, height: 50);
+
+// Resize the image proportionately with a width
+testImage = UIImage.resizeWithImage(testImage, width:100);
+        
+// Resize the image proportionately with a scale
+testImage = UIImage.resizeWithImage(testImage, scale:0.5);
+        
+// Resize the image to fit in rectangle
+testImage = UIImage.resizeWithImage(testImage, rect:CGRectMake(0, 0, 150, 40));
+        
+// Crop image with rectangle
+testImage = UIImage.cropWithImage(testImage, rect: CGRectMake(0, 0, 100, 100));
+```
+
 ####UIColor+Hex
 Create UIColor with Hex values
 ```swift
