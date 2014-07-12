@@ -35,9 +35,66 @@ class ViewController: UIViewController {
         
         self.uiImageColorTest();
         self.uiImageResizeTest();
+        
+        println("\n+------------------------------");
+        println(" UIVIEW TEST");
+        
+        self.uiViewSnapShotTest();
     }
     
     // MARK: UIKit Tests
+    
+    func uiViewSnapShotTest() {
+        
+        println("\nBuild artwork");
+        
+        // Create the view container we will snap shot
+        let viewContainer = UIView(frame:CGRectMake(0, 0, 200, 200));
+        
+        // Create Some artful views to screen shot
+        let r = UIView(frame: CGRectMake(0,   0,   100, 100));
+        let b = UIView(frame: CGRectMake(100, 0,   100, 100));
+        let g = UIView(frame: CGRectMake(100, 100, 100, 100));
+        let y = UIView(frame: CGRectMake(0,   100, 100, 100));
+        
+        // Color the views
+        r.backgroundColor = UIColor.redColor();
+        g.backgroundColor = UIColor.greenColor();
+        b.backgroundColor = UIColor.blueColor();
+        y.backgroundColor = UIColor.yellowColor();
+        
+        // Add the subviews
+        viewContainer.addSubview(r);
+        viewContainer.addSubview(g);
+        viewContainer.addSubview(b);
+        viewContainer.addSubview(y);
+        
+        // Add the container as a child of the root view
+        self.view.addSubview(viewContainer);
+        
+        println("Snap shot the artwork");
+        
+        // Take a snapshot
+        let snapshot:UIImage = viewContainer.captureSnapShot();
+        
+        println("Remove artwork");
+        
+        // Remove the view container with the art
+        viewContainer.removeFromSuperview();
+        
+        println("Add the snapshot");
+        
+        // Add a view to hold the image, and stage our image
+        let snapshotview:UIImageView = UIImageView(image: snapshot);
+        self.view.addSubview(snapshotview);
+        // Position the snapshot view
+        snapshotview.center = CGPointMake(200, 200);
+        
+        println("Cleanup view");
+        
+        // Be kind, rewind
+        snapshotview.removeFromSuperview();
+    }
     
     func uiImageResizeTest() {
         

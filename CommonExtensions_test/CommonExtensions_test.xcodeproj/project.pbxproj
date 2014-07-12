@@ -10,6 +10,7 @@
 		D80BADBC1951EB6E007269AE /* NSDate+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BADBB1951EB6E007269AE /* NSDate+JSON.swift */; };
 		D80BADBE1951EDED007269AE /* NSDate+Elapsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80BADBD1951EDED007269AE /* NSDate+Elapsed.swift */; };
 		D80E5B3D1950C55E00B1BEF0 /* NSDate+Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80E5B3B1950C55E00B1BEF0 /* NSDate+Locale.swift */; };
+		D8508A3A1970BD48004DFD4A /* UIView+SnapShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8508A391970BD48004DFD4A /* UIView+SnapShot.swift */; };
 		D86414A11964EEC30035287B /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86414A01964EEC30035287B /* UIColor+Hex.swift */; };
 		D86414A31968C4700035287B /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86414A21968C4700035287B /* UIImage+Color.swift */; };
 		D86414A51968D7410035287B /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86414A41968D7410035287B /* UIImage+Resize.swift */; };
@@ -49,6 +50,7 @@
 		D80BADBB1951EB6E007269AE /* NSDate+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+JSON.swift"; sourceTree = "<group>"; };
 		D80BADBD1951EDED007269AE /* NSDate+Elapsed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Elapsed.swift"; sourceTree = "<group>"; };
 		D80E5B3B1950C55E00B1BEF0 /* NSDate+Locale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+Locale.swift"; sourceTree = "<group>"; };
+		D8508A391970BD48004DFD4A /* UIView+SnapShot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapShot.swift"; sourceTree = "<group>"; };
 		D86414A01964EEC30035287B /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		D86414A21968C4700035287B /* UIImage+Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		D86414A41968D7410035287B /* UIImage+Resize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				D86414A01964EEC30035287B /* UIColor+Hex.swift */,
 				D86414A21968C4700035287B /* UIImage+Color.swift */,
 				D86414A41968D7410035287B /* UIImage+Resize.swift */,
+				D8508A391970BD48004DFD4A /* UIView+SnapShot.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				D80BADBE1951EDED007269AE /* NSDate+Elapsed.swift in Sources */,
 				D8F5A9D4195378D500ADB367 /* String+Extension.swift in Sources */,
 				D86414A51968D7410035287B /* UIImage+Resize.swift in Sources */,
+				D8508A3A1970BD48004DFD4A /* UIView+SnapShot.swift in Sources */,
 				D80E5B3D1950C55E00B1BEF0 /* NSDate+Locale.swift in Sources */,
 				D8AE872D1950B86A00FE0AB6 /* ViewController.swift in Sources */,
 				D8AE872B1950B86A00FE0AB6 /* AppDelegate.swift in Sources */,
