@@ -1,7 +1,7 @@
 CommonExtensions
 ================
 
-Common Extensions for Swift Alpha 0.1
+Common Extensions for Swift Alpha 0.3
 
 ####UIView+SnapShot
 Captures a snapshot of a UIView.
