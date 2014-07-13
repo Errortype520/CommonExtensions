@@ -1,9 +1,9 @@
 CommonExtensions
 ================
 
-Common Extensions for Swift (Beta 0.4) are a collection of commonly used extensions to existing Swift and UIKit classes. These will be modified, updated, and possibly removed as Swift develops as a language, and as I learn more about what Swift has to offer.
+Common Extensions for Swift (Beta 0.4) are a collection of commonly used extensions to existing Swift and UIKit classes. These will be modified, updated, added to and possibly removed as Swift develops as a language, and as I learn more about what Swift has to offer.
 
-Suggestions and pull requests are welcome and encouraged. MIT license.
+*Suggestions and pull requests are __welcomed__ and __encouraged__*.
 
 
 ####UIView+SnapShot
