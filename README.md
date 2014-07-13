@@ -13,6 +13,16 @@ Captures a snapshot of a UIView.
 let snapshot:UIImage = captureMeView.captureSnapShot();
 ```
 
+####UIColor+Hex
+Create UIColor with Hex values
+```swift
+// Change the background to RED
+self.view.backgroundColor = UIColor.colorWithHex(0xFF0000);
+
+// Change the background color back to white using hex color as a string
+self.view.backgroundColor = UIColor.colorWithHexString("#FFFFFF");
+```
+
 ####UIImage+Resize
 Resize and crop UIImage when you need to manipulate a UIImage, and not just it's UIImageView.
 ```swift
@@ -33,16 +43,6 @@ testImage = UIImage.resizeWithImage(testImage, rect:CGRectMake(0, 0, 150, 40));
         
 // Crop image with rectangle
 testImage = UIImage.cropWithImage(testImage, rect: CGRectMake(0, 0, 100, 100));
-```
-
-####UIColor+Hex
-Create UIColor with Hex values
-```swift
-// Change the background to RED
-self.view.backgroundColor = UIColor.colorWithHex(0xFF0000);
-
-// Change the background color back to white using hex color as a string
-self.view.backgroundColor = UIColor.colorWithHexString("#FFFFFF");
 ```
 
 ####UIImage+Color
