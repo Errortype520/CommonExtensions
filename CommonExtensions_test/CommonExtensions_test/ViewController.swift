@@ -40,6 +40,7 @@ class ViewController: UIViewController {
         println(" UIVIEW TEST");
         
         self.uiViewSnapShotTest();
+        
     }
     
     // MARK: UIKit Tests
