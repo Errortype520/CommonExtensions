@@ -42,7 +42,7 @@ extension NSDate {
         var dateFormatter:NSDateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss:SSSZZZ";
         
-        return dateFormatter.dateFromString(adjustedDate);
+        return dateFormatter.dateFromString(adjustedDate)!;
     }
     
 }

@@ -31,9 +31,9 @@ extension UIColor {
     */
     class func colorWithHex(color:UInt) -> UIColor {
         
-        return UIColor( red:    ((Float)((color & 0xFF0000) >> 16))/255.0,
-                        green:  ((Float)((color & 0xFF00) >> 8))/255.0,
-                        blue:   ((Float)((color & 0xFF)))/255.0,
+        return UIColor( red:    ((CGFloat)((color & 0xFF0000) >> 16))/255.0,
+                        green:  ((CGFloat)((color & 0xFF00) >> 8))/255.0,
+                        blue:   ((CGFloat)((color & 0xFF)))/255.0,
                         alpha:  1.0);
     }
     
@@ -51,7 +51,7 @@ extension UIColor {
         var hexString:String = color.stringByReplacingOccurrencesOfString("#", withString:"0x");
         
         // If scanner is able to convert the string to UInt
-        if ( NSScanner.scannerWithString(hexString).scanHexInt(&value) ) {
+        if ( NSScanner.localizedScannerWithString(hexString).scanHexInt(&value) ) {
             return self.colorWithHex(UInt(value));
         }
         

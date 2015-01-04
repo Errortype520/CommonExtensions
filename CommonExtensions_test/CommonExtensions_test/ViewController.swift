@@ -100,7 +100,7 @@ class ViewController: UIViewController {
     func uiImageResizeTest() {
         
         // Create an image
-        var testImage:UIImage = UIImage(named:"puppy-running.png");
+        var testImage:UIImage = UIImage(named:"puppy-running.png")!;
         
         // Resize height test
         // testImage = UIImage.resizeWithImage(testImage, height: 50);
@@ -213,23 +213,23 @@ class ViewController: UIViewController {
         
         // NSDate + Elapsed
         println("\nNSDate + Elapsed");
-        let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian);
+        let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!;
         var offsetComponents = NSDateComponents();
 
         offsetComponents.second = -1;
-        println("Elapsed Time (sec): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:nil), toDate:now ));
+        println("Elapsed Time (sec): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:nil)!, toDate:now ));
         offsetComponents.minute = -1;
-        println("Elapsed Time (min): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst), toDate:now ));
+        println("Elapsed Time (min): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
         offsetComponents.hour = -1;
-        println("Elapsed Time (hour): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst), toDate:now ));
+        println("Elapsed Time (hour): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
         offsetComponents.day = -1;
-        println("Elapsed Time (day): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst), toDate:now ));
+        println("Elapsed Time (day): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
         offsetComponents.day = -7;
-        println("Elapsed Time (week): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst), toDate:now ));
+        println("Elapsed Time (week): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
         offsetComponents.month = -1;
-        println("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst), toDate:now ));
+        println("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
         offsetComponents.year = -1;
-        println("Elapsed Time (year): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst),
+        println("Elapsed Time (year): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!,
                                                                       toDate:now,  scannedFormat:"Scanned %d %@ ago"));
     }
     

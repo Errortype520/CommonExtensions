@@ -32,10 +32,10 @@ extension UIImage {
     *
     * @return The resized image
     */
-    class func resizeWithImage(image:UIImage, height:Float) -> UIImage {
+    class func resizeWithImage(image:UIImage, height:CGFloat) -> UIImage {
         
         // Calculate scale needed to adjust to new image size
-        let scale:Float = height / image.size.height;
+        let scale:CGFloat = height / image.size.height;
         return resizeWithImage(image, scale: scale);
     }
     
@@ -47,10 +47,10 @@ extension UIImage {
     *
     * @return The resized image
     */
-    class func resizeWithImage(image:UIImage, width:Float)  -> UIImage {
+    class func resizeWithImage(image:UIImage, width:CGFloat)  -> UIImage {
         // Calculate scale needed to adjust to new image size
-        let scale:Float = width / image.size.width;
-        return resizeWithImage(image, scale: scale);
+        let scale:CGFloat = width / image.size.width;
+        return resizeWithImage(image, scale:scale);
     }
     
     /**
@@ -61,7 +61,7 @@ extension UIImage {
     *
     * @return The resized image
     */
-    class func resizeWithImage(image:UIImage, scale:Float)  -> UIImage {
+    class func resizeWithImage(image:UIImage, scale:CGFloat)  -> UIImage {
         
         // Calcualte the rectangle for our resized image
         let resizedRect:CGRect = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
@@ -115,12 +115,7 @@ extension UIImage {
                                          rect.size.width * image.scale, rect.size.height * image.scale);
         // Crop the image
         let imageRef:CGImageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
-        let cropImage:UIImage   = UIImage(CGImage:imageRef, scale:image.scale, orientation:image.imageOrientation);
-        
-        // TODO: Possible memory leak below?
-        
-        // Release image ref
-        // CGImageRelease(imageRef);
+        let cropImage:UIImage   = UIImage(CGImage:imageRef, scale:image.scale, orientation:image.imageOrientation)!;
         
         // Return the cropped image
         return cropImage;

@@ -112,6 +112,6 @@ extension NSDate {
     *  @return Date format with specified locale and components
     */
     func getDateFormatWithLocale(locale:NSLocale, dateComponents:String) -> String {
-        return NSDateFormatter.dateFormatFromTemplate(dateComponents, options: 0, locale: locale);
+        return NSDateFormatter.dateFormatFromTemplate(dateComponents, options: 0, locale: locale)!;
     }
 }
