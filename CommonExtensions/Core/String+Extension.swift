@@ -23,7 +23,7 @@ import Foundation
 extension String {
     
     /// Number of characters in string
-    var length:Int { get{ return countElements(self) } };
+    var length:Int { get{ return count(self) } };
     
     /**
     * Returns a new string with whitespace removed
