@@ -33,8 +33,8 @@ extension NSDate {
     class func elapsedDateComponentsFromDate(fromDate:NSDate, toDate:NSDate) -> NSDateComponents {
 
         // Default componenets
-        let desiredComponents:NSCalendarUnit =  .YearCalendarUnit | .MonthCalendarUnit | .DayCalendarUnit |
-                                                .HourCalendarUnit | .MinuteCalendarUnit | .SecondCalendarUnit;
+        let desiredComponents:NSCalendarUnit =  NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay |
+                                                NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond;
         
         // Elapsed Time units
         let elapsedTimeUnits:NSDateComponents = NSCalendar.currentCalendar().components(desiredComponents, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.MatchFirst);
