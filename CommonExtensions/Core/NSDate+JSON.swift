@@ -29,7 +29,7 @@ extension NSDate {
     *
     * @return NSDate created from JSON Date string.
     */
-    class func dateFromJSONString(jsonDate:String) -> NSDate {
+    class func dateFromJSONString(jsonDate:String) -> NSDate? {
         
         var adjustedDate:String = jsonDate;
         
@@ -42,7 +42,7 @@ extension NSDate {
         var dateFormatter:NSDateFormatter = NSDateFormatter();
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss:SSSZZZ";
         
-        return dateFormatter.dateFromString(adjustedDate)!;
+        return dateFormatter.dateFromString(adjustedDate);
     }
     
 }
