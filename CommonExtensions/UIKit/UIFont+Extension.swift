@@ -11,17 +11,12 @@ import UIKit
 extension UIFont {
     
     class func printFonts() {
-        
         for familyName in UIFont.familyNames() {
-            if let familyName = familyName as? String {
-                println(familyName)
-                for fontName in UIFont.fontNamesForFamilyName(familyName) {
-                    if let fontName = fontName as? String {
-                        println(" - " + fontName)
-                    }
-                }
+            print(familyName)
+            for fontName in UIFont.fontNamesForFamilyName(familyName) {
+                print(" - " + fontName)
             }
-        }
-        
+        }    
     }
+    
 }

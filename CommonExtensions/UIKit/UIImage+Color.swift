@@ -33,24 +33,24 @@ extension UIImage {
     class func imageFromColor(color:UIColor, imageSize:CGSize = CGSizeMake(1, 1) ) -> UIImage {
         
         // Create a rectangle with our size
-        let rect:CGRect = CGRectMake(0, 0, imageSize.width, imageSize.height);
+        let rect:CGRect = CGRectMake(0, 0, imageSize.width, imageSize.height)
         
         // Start drawing using image size
-        UIGraphicsBeginImageContext(imageSize);
+        UIGraphicsBeginImageContext(imageSize)
         
         // Get the current graphics context
-        let context:CGContextRef = UIGraphicsGetCurrentContext();
+        let context:CGContextRef = UIGraphicsGetCurrentContext()
         // Set the fill color and draw a rectangle with our required size
-        CGContextSetFillColorWithColor(context, color.CGColor);
-        CGContextFillRect(context, rect);
+        CGContextSetFillColorWithColor(context, color.CGColor)
+        CGContextFillRect(context, rect)
         
         // Create a UIImage from the current graphics context
-        var image:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        let image:UIImage = UIGraphicsGetImageFromCurrentImageContext()
         
         // Remove the current graphics context from the top of the stack
-        UIGraphicsEndImageContext();
+        UIGraphicsEndImageContext()
         
-        return image;
+        return image
         
     }
     

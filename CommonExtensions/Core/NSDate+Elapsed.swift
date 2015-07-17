@@ -33,13 +33,12 @@ extension NSDate {
     class func elapsedDateComponentsFromDate(fromDate:NSDate, toDate:NSDate) -> NSDateComponents {
 
         // Default componenets
-        let desiredComponents:NSCalendarUnit =  NSCalendarUnit.CalendarUnitYear | NSCalendarUnit.CalendarUnitMonth | NSCalendarUnit.CalendarUnitDay |
-                                                NSCalendarUnit.CalendarUnitHour | NSCalendarUnit.CalendarUnitMinute | NSCalendarUnit.CalendarUnitSecond;
+        let desiredComponents:NSCalendarUnit =  [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second]
         
         // Elapsed Time units
-        let elapsedTimeUnits:NSDateComponents = NSCalendar.currentCalendar().components(desiredComponents, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.MatchFirst);
+        let elapsedTimeUnits:NSDateComponents = NSCalendar.currentCalendar().components(desiredComponents, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.MatchFirst)
         
-        return elapsedTimeUnits;
+        return elapsedTimeUnits
     }
     
     /**
@@ -51,7 +50,7 @@ extension NSDate {
     * @return string representing time between the two dates
     */
     class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate) -> String {
-        return self.elapsedTimeFromDate(fromDate, toDate:toDate, scannedFormat:"Created %d %@ ago");
+        return self.elapsedTimeFromDate(fromDate, toDate:toDate, scannedFormat:"Created %d %@ ago")
     }
     
     
@@ -66,49 +65,49 @@ extension NSDate {
     */
     class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate, scannedFormat:String) -> String {
         
-        let elapsedTimeUnits:NSDateComponents = self.elapsedDateComponentsFromDate(fromDate, toDate: toDate);
+        let elapsedTimeUnits:NSDateComponents = self.elapsedDateComponentsFromDate(fromDate, toDate: toDate)
         
         // The number and the unit
-        var number:Int = 0;
-        var unit:String;
+        var number:Int = 0
+        var unit:String
         
         // Get our highest unit as return string
         if (elapsedTimeUnits.year > 0) {
-            number = elapsedTimeUnits.year;
-            unit = "year";
+            number = elapsedTimeUnits.year
+            unit = "year"
         }
         else if (elapsedTimeUnits.month > 0) {
-            number = elapsedTimeUnits.month;
-            unit = "month";
+            number = elapsedTimeUnits.month
+            unit = "month"
         }
         else if (elapsedTimeUnits.day >= 7) {
-            number = elapsedTimeUnits.day / 7;
-            unit = "week";
+            number = elapsedTimeUnits.day / 7
+            unit = "week"
         }
         else if (elapsedTimeUnits.day > 0) {
-            number = elapsedTimeUnits.day;
-            unit = "day";
+            number = elapsedTimeUnits.day
+            unit = "day"
         }
         else if (elapsedTimeUnits.hour > 0) {
-            number = elapsedTimeUnits.hour;
-            unit = "hour";
+            number = elapsedTimeUnits.hour
+            unit = "hour"
         }
         else if (elapsedTimeUnits.minute > 0) {
-            number = elapsedTimeUnits.minute;
-            unit = "minute";
+            number = elapsedTimeUnits.minute
+            unit = "minute"
         }
         else  {
-            number = elapsedTimeUnits.second;
-            unit = "second";
+            number = elapsedTimeUnits.second
+            unit = "second"
         }
         
         // Check if unit number is greater than 1, if so append s at the end
         if (number > 1) {
-            unit = String(format:"%@s", unit);
+            unit += "s"
         }
         
         // Return elapsed time using the scanned format
-        return String(format:scannedFormat, number, unit);
+        return String(format:scannedFormat, number, unit)
     }
     
 }

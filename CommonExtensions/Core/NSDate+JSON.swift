@@ -31,20 +31,20 @@ extension NSDate {
     */
     class func dateFromJSONString(jsonDate:String?) -> NSDate? {
         
-        if (jsonDate == nil) { return nil }
+        guard let jsonDate = jsonDate else { return nil }
         
-        var adjustedDate:String = jsonDate!
+        var adjustedDate:String = jsonDate
         
         // Replace offset 'T' with a space
-        adjustedDate = adjustedDate.stringByReplacingOccurrencesOfString("T", withString:" ");
+        adjustedDate = adjustedDate.stringByReplacingOccurrencesOfString("T", withString:" ")
         // Replace zulu 'Z' with timezone (+0000)
-        adjustedDate = adjustedDate.stringByReplacingOccurrencesOfString("Z", withString:"+0000");
+        adjustedDate = adjustedDate.stringByReplacingOccurrencesOfString("Z", withString:"+0000")
         
         // Create the dateformatter we will use to parse the JSON date
-        var dateFormatter:NSDateFormatter = NSDateFormatter();
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZZ";
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZZ"
         
-        return dateFormatter.dateFromString(adjustedDate);
+        return dateFormatter.dateFromString(adjustedDate)
     }
     
 }

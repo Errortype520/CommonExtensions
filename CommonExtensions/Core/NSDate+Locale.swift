@@ -30,7 +30,7 @@ extension NSDate {
     *  @return Date string (Local format)
     */
     func getLocalizedDate() -> String {
-        return self.getDateWithLocale(NSLocale.currentLocale());
+        return self.getDateWithLocale(NSLocale.currentLocale())
     }
     
     /**
@@ -39,7 +39,7 @@ extension NSDate {
     *  @return Date string (US format)
     */
     func getUSDate() -> String {
-        return self.getDateWithLocaleIdentifier("en_US");
+        return self.getDateWithLocaleIdentifier("en_US")
     }
     
     /**
@@ -48,7 +48,7 @@ extension NSDate {
     *  @return Date string (GB format)
     */
     func getGBDate() -> String {
-        return self.getDateWithLocaleIdentifier("en_GB");
+        return self.getDateWithLocaleIdentifier("en_GB")
     }
     
     /**
@@ -57,7 +57,7 @@ extension NSDate {
     *  @return Date string (JP format)
     */
     func getJPDate() -> String {
-        return self.getDateWithLocaleIdentifier("ja_JP");
+        return self.getDateWithLocaleIdentifier("ja_JP")
     }
     
     /**
@@ -68,7 +68,7 @@ extension NSDate {
     *  @return Date string in specified format
     */
     func getDateWithLocaleIdentifier(localeIdentifier:String) -> String {
-        return self.getDateWithLocale( NSLocale(localeIdentifier:localeIdentifier));
+        return self.getDateWithLocale( NSLocale(localeIdentifier:localeIdentifier))
     }
     
     
@@ -82,7 +82,7 @@ extension NSDate {
     *  @return Date string with specified format
     */
     func getDateWithLocale(locale:NSLocale) -> String {
-        return self.getDateWithLocale(locale, dateComponents:"yyyyMMdd");
+        return self.getDateWithLocale(locale, dateComponents:"yyyyMMdd")
     }
     
     /**
@@ -94,10 +94,10 @@ extension NSDate {
     *  @return Date string with specified locale and components
     */
     func getDateWithLocale(locale:NSLocale, dateComponents:String) -> String {
-        let format:String = self.getDateFormatWithLocale(locale, dateComponents:dateComponents);
-        let dateFormatter:NSDateFormatter = NSDateFormatter();
-        dateFormatter.dateFormat = format;
-        return dateFormatter.stringFromDate(self);
+        let format:String = self.getDateFormatWithLocale(locale, dateComponents:dateComponents)
+        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.stringFromDate(self)
     }
     
     
@@ -112,6 +112,6 @@ extension NSDate {
     *  @return Date format with specified locale and components
     */
     func getDateFormatWithLocale(locale:NSLocale, dateComponents:String) -> String {
-        return NSDateFormatter.dateFormatFromTemplate(dateComponents, options: 0, locale: locale)!;
+        return NSDateFormatter.dateFormatFromTemplate(dateComponents, options: 0, locale: locale)!
     }
 }

@@ -35,8 +35,8 @@ extension UIImage {
     class func resizeWithImage(image:UIImage, height:CGFloat) -> UIImage {
         
         // Calculate scale needed to adjust to new image size
-        let scale:CGFloat = height / image.size.height;
-        return resizeWithImage(image, scale: scale);
+        let scale:CGFloat = height / image.size.height
+        return resizeWithImage(image, scale: scale)
     }
     
     /**
@@ -48,9 +48,10 @@ extension UIImage {
     * @return The resized image
     */
     class func resizeWithImage(image:UIImage, width:CGFloat)  -> UIImage {
+        
         // Calculate scale needed to adjust to new image size
-        let scale:CGFloat = width / image.size.width;
-        return resizeWithImage(image, scale:scale);
+        let scale:CGFloat = width / image.size.width
+        return resizeWithImage(image, scale:scale)
     }
     
     /**
@@ -64,9 +65,8 @@ extension UIImage {
     class func resizeWithImage(image:UIImage, scale:CGFloat)  -> UIImage {
         
         // Calcualte the rectangle for our resized image
-        let resizedRect:CGRect = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale);
-        // Return the new UIImage created using the scaled rectangle
-        return UIImage.resizeWithImage(image, rect:resizedRect);
+        let resizedRect:CGRect = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale)
+        return UIImage.resizeWithImage(image, rect:resizedRect)
     }
     
     /**
@@ -80,22 +80,22 @@ extension UIImage {
     class func resizeWithImage(image:UIImage, rect:CGRect) -> UIImage {
         
         // Creates a bitmap-based graphics context
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(rect.size.width, rect.size.height), true, 0);
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(rect.size.width, rect.size.height), true, 0)
         
         // Current graphic context
-        let context:CGContextRef = UIGraphicsGetCurrentContext();
+        let context:CGContextRef = UIGraphicsGetCurrentContext()
         // Use Best quality
-        CGContextSetInterpolationQuality(context, kCGInterpolationHigh);
-        image.drawInRect(rect);
+        CGContextSetInterpolationQuality(context, CGInterpolationQuality.High)
+        image.drawInRect(rect)
         
         // Image based on the graphics context
-        let resizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        let resizedImage:UIImage = UIGraphicsGetImageFromCurrentImageContext()
 
         // Remove the current graphics context from the top of the stack
-        UIGraphicsEndImageContext();
+        UIGraphicsEndImageContext()
         
         // Return the resized image
-        return resizedImage;
+        return resizedImage
     }
     
     // MARK: Crop image
@@ -112,12 +112,12 @@ extension UIImage {
 
         // Crop rectangle scaled with image scale
         let cropRect:CGRect = CGRectMake(rect.origin.x * image.scale, rect.origin.y * image.scale,
-                                         rect.size.width * image.scale, rect.size.height * image.scale);
+                                         rect.size.width * image.scale, rect.size.height * image.scale)
         // Crop the image
-        let imageRef:CGImageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect);
-        let cropImage:UIImage   = UIImage(CGImage:imageRef, scale:image.scale, orientation:image.imageOrientation)!;
+        let imageRef:CGImageRef = CGImageCreateWithImageInRect(image.CGImage, cropRect)!
+        let cropImage:UIImage   = UIImage(CGImage:imageRef, scale:image.scale, orientation:image.imageOrientation)
         
         // Return the cropped image
-        return cropImage;
+        return cropImage
     }
 }

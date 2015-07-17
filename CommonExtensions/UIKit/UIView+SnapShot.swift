@@ -30,18 +30,18 @@ extension UIView {
     func captureSnapShot() -> UIImage {
         
         // Begin new context
-        UIGraphicsBeginImageContextWithOptions(self.frame.size, true, 0);
+        UIGraphicsBeginImageContextWithOptions(self.frame.size, true, 0)
         
         // Render the layer and capture the image
-        self.layer.renderInContext(UIGraphicsGetCurrentContext());
+        self.layer.renderInContext(UIGraphicsGetCurrentContext())
         // Capture the image
-        var snapshot:UIImage = UIGraphicsGetImageFromCurrentImageContext();
+        let snapshot:UIImage = UIGraphicsGetImageFromCurrentImageContext()
         
         // Remove context from top of stack
-        UIGraphicsEndImageContext();
+        UIGraphicsEndImageContext()
         
         // Return the created snapshot
-        return snapshot;
+        return snapshot
     }
     
     /**
