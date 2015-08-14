@@ -33,7 +33,7 @@ extension UIView {
         UIGraphicsBeginImageContextWithOptions(self.frame.size, true, 0)
         
         // Render the layer and capture the image
-        self.layer.renderInContext(UIGraphicsGetCurrentContext())
+        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         // Capture the image
         let snapshot:UIImage = UIGraphicsGetImageFromCurrentImageContext()
         

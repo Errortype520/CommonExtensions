@@ -39,7 +39,7 @@ extension UIImage {
         UIGraphicsBeginImageContext(imageSize)
         
         // Get the current graphics context
-        let context:CGContextRef = UIGraphicsGetCurrentContext()
+        let context:CGContextRef = UIGraphicsGetCurrentContext()!
         // Set the fill color and draw a rectangle with our required size
         CGContextSetFillColorWithColor(context, color.CGColor)
         CGContextFillRect(context, rect)

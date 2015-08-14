@@ -83,7 +83,7 @@ extension UIImage {
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(rect.size.width, rect.size.height), true, 0)
         
         // Current graphic context
-        let context:CGContextRef = UIGraphicsGetCurrentContext()
+        let context:CGContextRef = UIGraphicsGetCurrentContext()!
         // Use Best quality
         CGContextSetInterpolationQuality(context, CGInterpolationQuality.High)
         image.drawInRect(rect)
