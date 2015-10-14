@@ -15,31 +15,26 @@ class ViewController: UIViewController {
     
     func extensionTest() {
         
-        println("+------------------------------");
-        println(" DATE TEST");
+        print("+------------------------------")
+        print(" DATE TEST")
         
-        self.dateTest();
+        self.dateTest()
         
-        println("\n+------------------------------");
-        println(" STRING TEST");
+        print("\n+------------------------------")
+        print(" UICOLOR TEST")
         
-        self.stringTest();
+        self.uiColorHexTest()
         
-        println("\n+------------------------------");
-        println(" UICOLOR TEST");
+        print("\n+------------------------------")
+        print(" UIIMAGE TEST")
         
-        self.uiColorHexTest();
+        self.uiImageColorTest()
+        self.uiImageResizeTest()
         
-        println("\n+------------------------------");
-        println(" UIIMAGE TEST");
+        print("\n+------------------------------")
+        print(" UIVIEW TEST")
         
-        self.uiImageColorTest();
-        self.uiImageResizeTest();
-        
-        println("\n+------------------------------");
-        println(" UIVIEW TEST");
-        
-        self.uiViewSnapShotTest();
+        self.uiViewSnapShotTest()
         
     }
     
@@ -47,190 +42,175 @@ class ViewController: UIViewController {
     
     func uiViewSnapShotTest() {
         
-        println("\nBuild artwork");
+        print("\nBuild artwork")
         
         // Create the view container we will snap shot
-        let viewContainer = UIView(frame:CGRectMake(0, 0, 200, 200));
+        let viewContainer = UIView(frame:CGRectMake(0, 0, 200, 200))
         
         // Create Some artful views to screen shot
-        let r = UIView(frame: CGRectMake(0,   0,   100, 100));
-        let b = UIView(frame: CGRectMake(100, 0,   100, 100));
-        let g = UIView(frame: CGRectMake(100, 100, 100, 100));
-        let y = UIView(frame: CGRectMake(0,   100, 100, 100));
+        let r = UIView(frame: CGRectMake(0,   0,   100, 100))
+        let b = UIView(frame: CGRectMake(100, 0,   100, 100))
+        let g = UIView(frame: CGRectMake(100, 100, 100, 100))
+        let y = UIView(frame: CGRectMake(0,   100, 100, 100))
         
         // Color the views
-        r.backgroundColor = UIColor.redColor();
-        g.backgroundColor = UIColor.greenColor();
-        b.backgroundColor = UIColor.blueColor();
-        y.backgroundColor = UIColor.yellowColor();
+        r.backgroundColor = UIColor.redColor()
+        g.backgroundColor = UIColor.greenColor()
+        b.backgroundColor = UIColor.blueColor()
+        y.backgroundColor = UIColor.yellowColor()
         
         // Add the subviews
-        viewContainer.addSubview(r);
-        viewContainer.addSubview(g);
-        viewContainer.addSubview(b);
-        viewContainer.addSubview(y);
+        viewContainer.addSubview(r)
+        viewContainer.addSubview(g)
+        viewContainer.addSubview(b)
+        viewContainer.addSubview(y)
         
         // Add the container as a child of the root view
-        self.view.addSubview(viewContainer);
+        self.view.addSubview(viewContainer)
         
-        println("Snap shot the artwork");
+        print("Snap shot the artwork")
         
         // Take a snapshot
-        let snapshot:UIImage = viewContainer.captureSnapShot();
+        let snapshot:UIImage = viewContainer.captureSnapShot()
         
-        println("Remove artwork");
+        print("Remove artwork")
         
         // Remove the view container with the art
-        viewContainer.removeFromSuperview();
+        viewContainer.removeFromSuperview()
         
-        println("Add the snapshot");
+        print("Add the snapshot")
         
         // Add a view to hold the image, and stage our image
-        let snapshotview:UIImageView = UIImageView(image: snapshot);
-        self.view.addSubview(snapshotview);
+        let snapshotview:UIImageView = UIImageView(image: snapshot)
+        self.view.addSubview(snapshotview)
         // Position the snapshot view
-        snapshotview.center = CGPointMake(200, 200);
+        snapshotview.center = CGPointMake(200, 200)
         
-        println("Cleanup view");
+        print("Cleanup view")
         
         // Be kind, rewind
-        snapshotview.removeFromSuperview();
+        snapshotview.removeFromSuperview()
     }
     
     func uiImageResizeTest() {
         
         // Create an image
-        var testImage:UIImage = UIImage(named:"puppy-running.png")!;
+        let testImage:UIImage = UIImage(named:"puppy-running.png")!
         
         // Resize height test
-        // testImage = UIImage.resizeWithImage(testImage, height: 50);
+        // testImage = UIImage.resizeWithImage(testImage, height: 50)
         
-        println("\nImage resized by height");
+        print("\nImage resized by height")
         
         // Resize width test
-        // testImage = UIImage.resizeWithImage(testImage, width:100);
+        // testImage = UIImage.resizeWithImage(testImage, width:100)
         
-        println("Image resized by width");
+        print("Image resized by width")
         
         // Resize scale test
-        // testImage = UIImage.resizeWithImage(testImage, scale:0.5);
+        // testImage = UIImage.resizeWithImage(testImage, scale:0.5)
         
-        println("Image resized by scale");
+        print("Image resized by scale")
         
         // Resize rect test
-        // testImage = UIImage.resizeWithImage(testImage, rect:CGRectMake(0, 0, 150, 40));
+        // testImage = UIImage.resizeWithImage(testImage, rect:CGRectMake(0, 0, 150, 40))
         
-        println("Image resized by rect");
+        print("Image resized by rect")
         
         // Crop image test
-        // testImage = UIImage.cropWithImage(testImage, rect: CGRectMake(0, 0, 100, 100));
+        // testImage = UIImage.cropWithImage(testImage, rect: CGRectMake(0, 0, 100, 100))
         
-        println("Image cropped to rect");
+        print("Image cropped to rect")
         
         // Create the image view and add as a subview to view
-        let testImageView:UIImageView = UIImageView(image:testImage);
-        self.view.addSubview(testImageView);
+        let testImageView:UIImageView = UIImageView(image:testImage)
+        self.view.addSubview(testImageView)
         
         // Clean up image
-        testImageView.removeFromSuperview();
+        testImageView.removeFromSuperview()
         
-        println("Cleanup -- Image Views removed");
+        print("Cleanup -- Image Views removed")
     }
     
     func uiImageColorTest() {
         
         // Create a red square image
-        let redImage:UIImage = UIImage.imageFromColor(UIColor.redColor());
-        let redImageView:UIImageView = UIImageView(image: redImage);
+        let redImage:UIImage = UIImage.imageFromColor(UIColor.redColor())
+        let redImageView:UIImageView = UIImageView(image: redImage)
         
         // Add the red image to the view
-        self.view.addSubview(redImageView);
+        self.view.addSubview(redImageView)
         
-        println("\nRed 1x1 image added at (0,0)");
+        print("\nRed 1x1 image added at (0,0)")
         
-        let blueImage:UIImage = UIImage.imageFromColor(UIColor.blueColor(), imageSize: CGSizeMake(10, 10));
-        let blueImageView:UIImageView = UIImageView(frame: CGRectMake(1, 0, 10, 10));
+        let blueImage:UIImage = UIImage.imageFromColor(UIColor.blueColor(), imageSize: CGSizeMake(10, 10))
+        let blueImageView:UIImageView = UIImageView(frame: CGRectMake(1, 0, 10, 10))
         
         // Add the larger blue image to the view
-        blueImageView.image = blueImage;
+        blueImageView.image = blueImage
         self.view.addSubview(blueImageView)
         
-        println("Blue 10x10 image added at (1,0)");
+        print("Blue 10x10 image added at (1,0)")
         
         // Clean up
-        redImageView.removeFromSuperview();
-        blueImageView.removeFromSuperview();
+        redImageView.removeFromSuperview()
+        blueImageView.removeFromSuperview()
         
-        println("Cleanup -- Image Views removed");
+        print("Cleanup -- Image Views removed")
     }
     
     func uiColorHexTest() {
         
         // Change the background to RED
-        self.view.backgroundColor = UIColor.colorWithHex(0xFF0000);
+        self.view.backgroundColor = UIColor.colorFromHex(0xFF0000)
         
-        println("\nBackground color changed to RED (0xFF0000");
+        print("\nBackground color changed to RED (0xFF0000")
         
         // Change the background color back to white using hex color as a string
-        self.view.backgroundColor = UIColor.colorWithHexString("#FFFFFF");
+        self.view.backgroundColor = UIColor.colorFromHex(string:"#FFFFFF")
         
-        println("Background color changed back to WHITE (0xFFFFFF)");
+        print("Background color changed back to WHITE (0xFFFFFF)")
     }
     
     
     // MARK: Core Tests
     
-    func stringTest() {
-        
-        // String + Extension
-        println("\nString + Extension");
-        
-        var testString = "                      This is a string. 😀   ";
-        var testStringTrim = testString.removeWhiteSpace();
-        
-        println("Test String: " + testString);
-        println("Test String (white space removed): " + testStringTrim);
-        
-        println("Test String Length: \(testString.length)");
-        println("Test String Length (white space removed): \(testStringTrim.length)");
-    }
-    
     func dateTest() {
         
         // Current date
-        let now:NSDate = NSDate();
+        let now:NSDate = NSDate()
         
         // NSDate + Locale
-        println("\nNSDate + Locale");
-        println("Local Date: "  + now.getLocalizedDate());
-        println("US Date: "     + now.getUSDate());
-        println("GB Date: "     + now.getGBDate());
-        println("JP Date: "     + now.getJPDate());
+        print("\nNSDate + Locale")
+        print("Local Date: "  + now.getLocalizedDate())
+        print("US Date: "     + now.getUSDate())
+        print("GB Date: "     + now.getGBDate())
+        print("JP Date: "     + now.getJPDate())
         
         // NSDate + JSON
-        println("\nNSDate + JSON");
-        println("JSON Date: " + NSDate.dateFromJSONString("2014-04-25T15:03:21:124Z").getLocalizedDate() );
+        print("\nNSDate + JSON")
+        print("JSON Date: " + (NSDate.dateFromJSONString("2014-04-25T15:03:21Z")!.getLocalizedDate()) )
         
         // NSDate + Elapsed
-        println("\nNSDate + Elapsed");
-        let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!;
-        var offsetComponents = NSDateComponents();
+        print("\nNSDate + Elapsed")
+        let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let offsetComponents = NSDateComponents()
 
-        offsetComponents.second = -1;
-        println("Elapsed Time (sec): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:nil)!, toDate:now ));
-        offsetComponents.minute = -1;
-        println("Elapsed Time (min): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
-        offsetComponents.hour = -1;
-        println("Elapsed Time (hour): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
-        offsetComponents.day = -1;
-        println("Elapsed Time (day): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
-        offsetComponents.day = -7;
-        println("Elapsed Time (week): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
-        offsetComponents.month = -1;
-        println("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ));
-        offsetComponents.year = -1;
-        println("Elapsed Time (year): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!,
-                                                                      toDate:now,  scannedFormat:"Scanned %d %@ ago"));
+        offsetComponents.second = -1
+        print("Elapsed Time (sec): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:[])!, toDate:now ))
+        offsetComponents.minute = -1
+        print("Elapsed Time (min): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        offsetComponents.hour = -1
+        print("Elapsed Time (hour): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        offsetComponents.day = -1
+        print("Elapsed Time (day): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        offsetComponents.day = -7
+        print("Elapsed Time (week): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        offsetComponents.month = -1
+        print("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        offsetComponents.year = -1
+        print("Elapsed Time (year): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!,
+                                                                      toDate:now,  scannedFormat:"Scanned %d %@ ago"))
     }
     
     
@@ -239,7 +219,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.extensionTest();
+        self.extensionTest()
     }
 }
 

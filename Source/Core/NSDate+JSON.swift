@@ -42,7 +42,7 @@ extension NSDate {
         
         // Create the dateformatter we will use to parse the JSON date
         let dateFormatter:NSDateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZZ"
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZ"
         
         return dateFormatter.dateFromString(adjustedDate)
     }

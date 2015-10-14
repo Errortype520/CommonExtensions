@@ -69,7 +69,7 @@ println("JP Date: "     + now.getJPDate());     // RESULT: JP Date: 2014/07/02
 ####NSDate+JSON
 NSDate+JSON converts JSON String to NSDate.
 ```swift
-var date:NSDate = NSDate.dateFromJSONString("2014-04-25T15:03:21:124Z");
+var date:NSDate = NSDate.dateFromJSONString("2014-04-25T15:03:21Z");
 println("JSON Date: " + date.getLocalizedDate() );
 
 // RESULT: JSON Date: 04/25/2014
@@ -88,24 +88,6 @@ var fromDate:NSDate = gregorian.dateByAddingComponents(offsetComponents, toDate:
 println("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( fromDate, toDate:now ));
 
 // RESEULT: Elapsed Time (month): Created 1 month ago
-```
-
-####String+Extensions
-String extensions adds common length variable and a remove white space method.
-```swift
-var testString = "                      This is a string. ";
-var testStringTrim = testString.removeWhiteSpace();
-
-println("Test String: " + testString);
-println("Test String (white space removed): " + testStringTrim);
-
-println("Test String Length: \(testString.length)");
-println("Test String Length (white space removed): \(testStringTrim.length)");
-
-// RESULT: Test String:                       This is a string.  
-// RESULT: Test String (white space removed): This is a string.
-// RESULT: Test String Length: 39
-// RESULT: Test String Length (white space removed): 17
 ```
 
 
