@@ -20,7 +20,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
     // MARK: Resizing image
     
@@ -32,7 +32,7 @@ extension UIImage {
     *
     * @return The resized image
     */
-    class func resizeWithImage(image:UIImage, height:CGFloat) -> UIImage {
+    public class func resizeWithImage(image:UIImage, height:CGFloat) -> UIImage {
         
         // Calculate scale needed to adjust to new image size
         let scale:CGFloat = height / image.size.height
@@ -47,7 +47,7 @@ extension UIImage {
     *
     * @return The resized image
     */
-    class func resizeWithImage(image:UIImage, width:CGFloat)  -> UIImage {
+    public class func resizeWithImage(image:UIImage, width:CGFloat)  -> UIImage {
         
         // Calculate scale needed to adjust to new image size
         let scale:CGFloat = width / image.size.width
@@ -62,7 +62,7 @@ extension UIImage {
     *
     * @return The resized image
     */
-    class func resizeWithImage(image:UIImage, scale:CGFloat)  -> UIImage {
+    public class func resizeWithImage(image:UIImage, scale:CGFloat)  -> UIImage {
         
         // Calcualte the rectangle for our resized image
         let resizedRect:CGRect = CGRectMake(0, 0, image.size.width * scale, image.size.height * scale)
@@ -77,7 +77,7 @@ extension UIImage {
     *
     * @return The resized image
     */
-    class func resizeWithImage(image:UIImage, rect:CGRect) -> UIImage {
+    public class func resizeWithImage(image:UIImage, rect:CGRect) -> UIImage {
         
         // Creates a bitmap-based graphics context
         UIGraphicsBeginImageContextWithOptions(CGSizeMake(rect.size.width, rect.size.height), true, 0)
@@ -108,7 +108,7 @@ extension UIImage {
     *
     * @return The cropped image
     */
-    class func cropWithImage(image:UIImage, rect:CGRect) -> UIImage {
+    public class func cropWithImage(image:UIImage, rect:CGRect) -> UIImage {
 
         // Crop rectangle scaled with image scale
         let cropRect:CGRect = CGRectMake(rect.origin.x * image.scale, rect.origin.y * image.scale,

@@ -20,7 +20,7 @@
 
 import Foundation
 
-extension NSDate {
+public extension NSDate {
 
     /**
     * Parses JSON Date and returns an NSDate.
@@ -29,7 +29,7 @@ extension NSDate {
     *
     * @return NSDate created from JSON Date string.
     */
-    class func dateFromJSONString(jsonDate:String?) -> NSDate? {
+    public class func dateFromJSONString(jsonDate:String?) -> NSDate? {
         
         guard let jsonDate = jsonDate else { return nil }
         

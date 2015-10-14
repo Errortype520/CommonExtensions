@@ -20,7 +20,7 @@
 
 import Foundation
 
-extension NSDate {
+public extension NSDate {
     
     /**
     * Returns the date components (Years, Months, Days, Hours, Minutes, Seconds) between the two specified dates.
@@ -30,7 +30,7 @@ extension NSDate {
     *
     * @return Components between the two dates
     */
-    class func elapsedDateComponentsFromDate(fromDate:NSDate, toDate:NSDate) -> NSDateComponents {
+    public class func elapsedDateComponentsFromDate(fromDate:NSDate, toDate:NSDate) -> NSDateComponents {
 
         // Default componenets
         let desiredComponents:NSCalendarUnit =  [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second]
@@ -49,7 +49,7 @@ extension NSDate {
     *
     * @return string representing time between the two dates
     */
-    class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate) -> String {
+    public class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate) -> String {
         return self.elapsedTimeFromDate(fromDate, toDate:toDate, scannedFormat:"Created %d %@ ago")
     }
     
@@ -63,7 +63,7 @@ extension NSDate {
     *
     * @return string representing time between the two dates
     */
-    class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate, scannedFormat:String) -> String {
+    public class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate, scannedFormat:String) -> String {
         
         let elapsedTimeUnits:NSDateComponents = self.elapsedDateComponentsFromDate(fromDate, toDate: toDate)
         

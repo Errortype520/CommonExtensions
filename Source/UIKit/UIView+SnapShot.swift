@@ -20,14 +20,14 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     
     /**
     *  Capture a snap shot of the UIView
     *
     *  @return Return spanshot as UIImage
     */
-    func captureSnapShot() -> UIImage {
+    public func captureSnapShot() -> UIImage {
         
         // Begin new context
         UIGraphicsBeginImageContextWithOptions(self.frame.size, true, 0)

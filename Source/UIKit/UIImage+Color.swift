@@ -20,7 +20,7 @@
 
 import UIKit
 
-extension UIImage {
+public extension UIImage {
     
     /** 
     * Creates an image from a UIColor.
@@ -30,7 +30,7 @@ extension UIImage {
     *
     * @return UIImage created from color.
     */
-    class func imageFromColor(color:UIColor, imageSize:CGSize = CGSizeMake(1, 1) ) -> UIImage {
+    public class func imageFromColor(color:UIColor, imageSize:CGSize = CGSizeMake(1, 1) ) -> UIImage {
         
         // Create a rectangle with our size
         let rect:CGRect = CGRectMake(0, 0, imageSize.width, imageSize.height)

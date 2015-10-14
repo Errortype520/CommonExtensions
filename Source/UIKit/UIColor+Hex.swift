@@ -20,7 +20,7 @@
 
 import UIKit
 
-extension UIColor {
+public extension UIColor {
     
     /**
     * Convert HEX color to UIColor
@@ -29,7 +29,7 @@ extension UIColor {
     *
     * @return UIColor created from HEX
     */
-    class func colorFromHex(color:UInt) -> UIColor {
+    public class func colorFromHex(color:UInt) -> UIColor {
         
         return UIColor( red:    ((CGFloat)((color & 0xFF0000) >> 16)) / 255.0,
                         green:  ((CGFloat)((color & 0xFF00) >> 8)) / 255.0,
@@ -44,7 +44,7 @@ extension UIColor {
     *
     * @return UIColor created from HEX
     */
-    class func colorFromHex(string color:String) -> UIColor {
+    public class func colorFromHex(string color:String) -> UIColor {
         
         var value:CUnsignedInt = 0
         let hexString:String = color.stringByReplacingOccurrencesOfString("#", withString:"0x")
