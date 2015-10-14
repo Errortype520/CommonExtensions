@@ -17,10 +17,10 @@ let snapshot:UIImage = captureMeView.captureSnapShot();
 Create UIColor with Hex values
 ```swift
 // Change the background to RED
-self.view.backgroundColor = UIColor.colorWithHex(0xFF0000);
+self.view.backgroundColor = UIColor.colorFromHex(0xFF0000);
 
 // Change the background color back to white using hex color as a string
-self.view.backgroundColor = UIColor.colorWithHexString("#FFFFFF");
+self.view.backgroundColor = UIColor.colorFromHex(string:"#FFFFFF");
 ```
 
 ####UIImage+Resize
