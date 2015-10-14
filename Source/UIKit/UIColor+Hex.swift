@@ -57,5 +57,4 @@ extension UIColor {
         // Default return clear color if parsing color fails
         return UIColor.clearColor()
     }
-    
 }
