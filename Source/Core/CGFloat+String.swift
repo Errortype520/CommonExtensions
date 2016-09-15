@@ -1,5 +1,5 @@
 //
-//  UIFont+Extension.swift
+//  CGFloat+String.swift
 //  CommonExtensions
 //
 //  Copyright (c) 2014-2016 Joe Burgess
@@ -20,18 +20,10 @@
 
 import UIKit
 
-public extension UIFont {
+extension CGFloat {
     
-    /**
-     * Print all fonts available to system
-     */
-    public class func printFonts() {
-        for familyName in UIFont.familyNames {
-            print(familyName)
-            for fontName in UIFont.fontNames(forFamilyName: familyName) {
-                print(" - " + fontName)
-            }
-        }    
+    init?(_ value: String) {
+        guard let value = Double(value) else { return nil }
+        self.init(value)
     }
-    
 }

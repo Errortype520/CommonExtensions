@@ -1,8 +1,8 @@
 //
-//  NSDate+Locale.swift
+//  Date+Locale.swift
 //  CommonExtensions
 //
-//  Copyright (c) 2014 Joe Burgess
+//  Copyright (c) 2014-2016 Joe Burgess
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 //  documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -20,7 +20,7 @@
 
 import Foundation
 
-public extension NSDate {
+public extension Date {
     
     // MARK: Convenience quick dates
     
@@ -30,7 +30,7 @@ public extension NSDate {
     *  @return Date string (Local format)
     */
     public func getLocalizedDate() -> String {
-        return self.getDateWithLocale(NSLocale.currentLocale())
+        return self.getDate(withLocale:Locale.current)
     }
     
     /**
@@ -39,7 +39,7 @@ public extension NSDate {
     *  @return Date string (US format)
     */
     public func getUSDate() -> String {
-        return self.getDateWithLocaleIdentifier("en_US")
+        return self.getDate(withLocaleIdentifier:"en_US")
     }
     
     /**
@@ -48,7 +48,7 @@ public extension NSDate {
     *  @return Date string (GB format)
     */
     public func getGBDate() -> String {
-        return self.getDateWithLocaleIdentifier("en_GB")
+        return self.getDate(withLocaleIdentifier:"en_GB")
     }
     
     /**
@@ -57,7 +57,7 @@ public extension NSDate {
     *  @return Date string (JP format)
     */
     public func getJPDate() -> String {
-        return self.getDateWithLocaleIdentifier("ja_JP")
+        return self.getDate(withLocaleIdentifier:"ja_JP")
     }
     
     /**
@@ -67,22 +67,8 @@ public extension NSDate {
     *
     *  @return Date string in specified format
     */
-    public func getDateWithLocaleIdentifier(localeIdentifier:String) -> String {
-        return self.getDateWithLocale( NSLocale(localeIdentifier:localeIdentifier))
-    }
-    
-    
-    // MARK: Date with Locale
-    
-    /**
-    *  Get date as string with locale and default date components (yyyyMMdd)
-    *
-    *  @param locale Locale for date
-    *
-    *  @return Date string with specified format
-    */
-    public func getDateWithLocale(locale:NSLocale) -> String {
-        return self.getDateWithLocale(locale, dateComponents:"yyyyMMdd")
+    public func getDate(withLocaleIdentifier localeIdentifier:String) -> String {
+        return self.getDate(withLocale: Locale(identifier:localeIdentifier))
     }
     
     /**
@@ -93,11 +79,11 @@ public extension NSDate {
     *
     *  @return Date string with specified locale and components
     */
-    public func getDateWithLocale(locale:NSLocale, dateComponents:String) -> String {
-        let format:String = self.getDateFormatWithLocale(locale, dateComponents:dateComponents)
-        let dateFormatter:NSDateFormatter = NSDateFormatter()
+    public func getDate(withLocale locale:Locale, dateComponents:String = "yyyyMMdd") -> String {
+        let format:String = self.getDateFormat(withLocale: locale, dateComponents:dateComponents)
+        let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        return dateFormatter.stringFromDate(self)
+        return dateFormatter.string(from: self)
     }
     
     
@@ -111,7 +97,7 @@ public extension NSDate {
     *
     *  @return Date format with specified locale and components
     */
-    public func getDateFormatWithLocale(locale:NSLocale, dateComponents:String) -> String {
-        return NSDateFormatter.dateFormatFromTemplate(dateComponents, options: 0, locale: locale)!
+    public func getDateFormat(withLocale locale:Locale, dateComponents:String) -> String {
+        return DateFormatter.dateFormat(fromTemplate: dateComponents, options: 0, locale: locale)!
     }
 }

@@ -45,19 +45,19 @@ class ViewController: UIViewController {
         print("\nBuild artwork")
         
         // Create the view container we will snap shot
-        let viewContainer = UIView(frame:CGRectMake(0, 0, 200, 200))
+        let viewContainer = UIView(frame: CGRect(x:0, y:0, width:200, height:200) )
         
         // Create Some artful views to screen shot
-        let r = UIView(frame: CGRectMake(0,   0,   100, 100))
-        let b = UIView(frame: CGRectMake(100, 0,   100, 100))
-        let g = UIView(frame: CGRectMake(100, 100, 100, 100))
-        let y = UIView(frame: CGRectMake(0,   100, 100, 100))
+        let r = UIView(frame: CGRect(x:0,   y:0,   width:100, height:100))
+        let b = UIView(frame: CGRect(x:100, y:0,   width:100, height:100))
+        let g = UIView(frame: CGRect(x:100, y:100, width:100, height:100))
+        let y = UIView(frame: CGRect(x:0,   y:100, width:100, height:100))
         
         // Color the views
-        r.backgroundColor = UIColor.redColor()
-        g.backgroundColor = UIColor.greenColor()
-        b.backgroundColor = UIColor.blueColor()
-        y.backgroundColor = UIColor.yellowColor()
+        r.backgroundColor = UIColor.red
+        g.backgroundColor = UIColor.green
+        b.backgroundColor = UIColor.blue
+        y.backgroundColor = UIColor.yellow
         
         // Add the subviews
         viewContainer.addSubview(r)
@@ -83,8 +83,9 @@ class ViewController: UIViewController {
         // Add a view to hold the image, and stage our image
         let snapshotview:UIImageView = UIImageView(image: snapshot)
         self.view.addSubview(snapshotview)
+        
         // Position the snapshot view
-        snapshotview.center = CGPointMake(200, 200)
+        snapshotview.center = CGPoint(x:200, y:200)
         
         print("Cleanup view")
         
@@ -135,7 +136,7 @@ class ViewController: UIViewController {
     func uiImageColorTest() {
         
         // Create a red square image
-        let redImage:UIImage = UIImage.imageFromColor(UIColor.redColor())
+        let redImage:UIImage = UIImage.image(fromColor: UIColor.red)
         let redImageView:UIImageView = UIImageView(image: redImage)
         
         // Add the red image to the view
@@ -143,8 +144,8 @@ class ViewController: UIViewController {
         
         print("\nRed 1x1 image added at (0,0)")
         
-        let blueImage:UIImage = UIImage.imageFromColor(UIColor.blueColor(), imageSize: CGSizeMake(10, 10))
-        let blueImageView:UIImageView = UIImageView(frame: CGRectMake(1, 0, 10, 10))
+        let blueImage:UIImage = UIImage.image(fromColor:UIColor.blue, imageSize: CGSize(width:10, height:10))
+        let blueImageView:UIImageView = UIImageView(frame: CGRect(x:1, y:0, width:10, height:10))
         
         // Add the larger blue image to the view
         blueImageView.image = blueImage
@@ -162,7 +163,7 @@ class ViewController: UIViewController {
     func uiColorHexTest() {
         
         // Change the background to RED
-        self.view.backgroundColor = UIColor.colorFromHex(0xFF0000)
+        self.view.backgroundColor = UIColor.colorFromHex(color:0xFF0000)
         
         print("\nBackground color changed to RED (0xFF0000")
         
@@ -178,7 +179,7 @@ class ViewController: UIViewController {
     func dateTest() {
         
         // Current date
-        let now:NSDate = NSDate()
+        let now:Date = Date()
         
         // NSDate + Locale
         print("\nNSDate + Locale")
@@ -189,27 +190,27 @@ class ViewController: UIViewController {
         
         // NSDate + JSON
         print("\nNSDate + JSON")
-        print("JSON Date: " + (NSDate.dateFromJSONString("2014-04-25T15:03:21Z")!.getLocalizedDate()) )
+        print("JSON Date: " + (Date.date(fromJSONDate:"2014-04-25T15:03:21Z")!.getLocalizedDate()) )
         
         // NSDate + Elapsed
         print("\nNSDate + Elapsed")
-        let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
         let offsetComponents = NSDateComponents()
 
         offsetComponents.second = -1
-        print("Elapsed Time (sec): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:[])!, toDate:now ))
+        print("Elapsed Time (sec): " +   Date.elapsedTime(fromDate: gregorian.date(byAdding: offsetComponents as DateComponents, to:now, options:[])!, toDate:now ))
         offsetComponents.minute = -1
-        print("Elapsed Time (min): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        print("Elapsed Time (min): " +   Date.elapsedTime(fromDate: gregorian.date(byAdding: offsetComponents as DateComponents, to:now, options:.matchFirst)!, toDate:now ))
         offsetComponents.hour = -1
-        print("Elapsed Time (hour): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        print("Elapsed Time (hour): " +  Date.elapsedTime(fromDate: gregorian.date(byAdding: offsetComponents as DateComponents, to:now, options:.matchFirst)!, toDate:now ))
         offsetComponents.day = -1
-        print("Elapsed Time (day): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        print("Elapsed Time (day): " +   Date.elapsedTime(fromDate: gregorian.date(byAdding: offsetComponents as DateComponents, to:now, options:.matchFirst)!, toDate:now ))
         offsetComponents.day = -7
-        print("Elapsed Time (week): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        print("Elapsed Time (week): " +  Date.elapsedTime(fromDate: gregorian.date(byAdding: offsetComponents as DateComponents, to:now, options:.matchFirst)!, toDate:now ))
         offsetComponents.month = -1
-        print("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!, toDate:now ))
+        print("Elapsed Time (month): " + Date.elapsedTime(fromDate: gregorian.date(byAdding: offsetComponents as DateComponents, to:now, options:.matchFirst)!, toDate:now ))
         offsetComponents.year = -1
-        print("Elapsed Time (year): " + NSDate.elapsedTimeFromDate( gregorian.dateByAddingComponents(offsetComponents, toDate:now, options:.MatchFirst)!,
+        print("Elapsed Time (year): " +  Date.elapsedTime(fromDate: gregorian.date(byAdding: offsetComponents as DateComponents, to:now, options:.matchFirst)!,
                                                                       toDate:now,  scannedFormat:"Scanned %d %@ ago"))
     }
     

@@ -2,7 +2,7 @@
 //  UIView+SnapShot.swift
 //  CommonExtensions_test
 //
-//  Copyright (c) 2014 Joe Burgess
+//  Copyright (c) 2014-2016 Joe Burgess
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 //  documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -33,9 +33,9 @@ public extension UIView {
         UIGraphicsBeginImageContextWithOptions(self.frame.size, true, 0)
         
         // Render the layer and capture the image
-        self.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        self.layer.render(in: UIGraphicsGetCurrentContext()!)
         // Capture the image
-        let snapshot:UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let snapshot:UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         
         // Remove context from top of stack
         UIGraphicsEndImageContext()
@@ -43,14 +43,5 @@ public extension UIView {
         // Return the created snapshot
         return snapshot
     }
-    
-    /**
-    *  Capture a snapshot of the UIView and blur it
-    *
-    *  @return Blurred snapshot as UIImage
-    */
-    
-    // TODO: Will use iOS 8 blur effect
-    
     
 }

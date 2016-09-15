@@ -1,5 +1,5 @@
 //
-//  UIFont+Extension.swift
+//  String+Extension.swift
 //  CommonExtensions
 //
 //  Copyright (c) 2014-2016 Joe Burgess
@@ -18,20 +18,15 @@
 //  THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-import UIKit
+import Foundation
 
-public extension UIFont {
+extension String {
     
-    /**
-     * Print all fonts available to system
-     */
-    public class func printFonts() {
-        for familyName in UIFont.familyNames {
-            print(familyName)
-            for fontName in UIFont.fontNames(forFamilyName: familyName) {
-                print(" - " + fontName)
-            }
-        }    
+    var length: Int {
+        return self.characters.count
     }
     
+    func strip() -> String {
+        return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+    }
 }

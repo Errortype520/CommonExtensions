@@ -1,8 +1,8 @@
 //
-//  NSDate+Elapsed.swift
+//  Date+Elapsed.swift
 //  CommonExtensions
 //
-//  Copyright (c) 2014 Joe Burgess
+//  Copyright (c) 2014-2016 Joe Burgess
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 //  documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -20,7 +20,7 @@
 
 import Foundation
 
-public extension NSDate {
+public extension Date {
     
     /**
     * Returns the date components (Years, Months, Days, Hours, Minutes, Seconds) between the two specified dates.
@@ -30,13 +30,13 @@ public extension NSDate {
     *
     * @return Components between the two dates
     */
-    public class func elapsedDateComponentsFromDate(fromDate:NSDate, toDate:NSDate) -> NSDateComponents {
+    public static func elapsedDateComponents(fromDate:Date, toDate:Date) -> DateComponents {
 
         // Default componenets
-        let desiredComponents:NSCalendarUnit =  [NSCalendarUnit.Year, NSCalendarUnit.Month, NSCalendarUnit.Day, NSCalendarUnit.Hour, NSCalendarUnit.Minute, NSCalendarUnit.Second]
+        let desiredComponents:NSCalendar.Unit =  [NSCalendar.Unit.year, NSCalendar.Unit.month, NSCalendar.Unit.day, NSCalendar.Unit.hour, NSCalendar.Unit.minute, NSCalendar.Unit.second]
         
         // Elapsed Time units
-        let elapsedTimeUnits:NSDateComponents = NSCalendar.currentCalendar().components(desiredComponents, fromDate: fromDate, toDate: toDate, options: NSCalendarOptions.MatchFirst)
+        let elapsedTimeUnits:DateComponents = (Calendar.current as NSCalendar).components(desiredComponents, from: fromDate, to: toDate, options: NSCalendar.Options.matchFirst)
         
         return elapsedTimeUnits
     }
@@ -49,8 +49,8 @@ public extension NSDate {
     *
     * @return string representing time between the two dates
     */
-    public class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate) -> String {
-        return self.elapsedTimeFromDate(fromDate, toDate:toDate, scannedFormat:"Created %d %@ ago")
+    public static func elapsedTime(fromDate:Date, toDate:Date) -> String {
+        return self.elapsedTime(fromDate:fromDate, toDate:toDate, scannedFormat:"Created %d %@ ago")
     }
     
     
@@ -63,41 +63,41 @@ public extension NSDate {
     *
     * @return string representing time between the two dates
     */
-    public class func elapsedTimeFromDate(fromDate:NSDate, toDate:NSDate, scannedFormat:String) -> String {
+    public static func elapsedTime(fromDate:Date, toDate:Date, scannedFormat:String) -> String {
         
-        let elapsedTimeUnits:NSDateComponents = self.elapsedDateComponentsFromDate(fromDate, toDate: toDate)
+        let elapsedTimeUnits:DateComponents = self.elapsedDateComponents(fromDate:fromDate, toDate: toDate)
         
         // The number and the unit
         var number:Int = 0
         var unit:String
         
         // Get our highest unit as return string
-        if (elapsedTimeUnits.year > 0) {
-            number = elapsedTimeUnits.year
+        if (elapsedTimeUnits.year! > 0) {
+            number = elapsedTimeUnits.year!
             unit = "year"
         }
-        else if (elapsedTimeUnits.month > 0) {
-            number = elapsedTimeUnits.month
+        else if (elapsedTimeUnits.month! > 0) {
+            number = elapsedTimeUnits.month!
             unit = "month"
         }
-        else if (elapsedTimeUnits.day >= 7) {
-            number = elapsedTimeUnits.day / 7
+        else if (elapsedTimeUnits.day! >= 7) {
+            number = elapsedTimeUnits.day! / 7
             unit = "week"
         }
-        else if (elapsedTimeUnits.day > 0) {
-            number = elapsedTimeUnits.day
+        else if (elapsedTimeUnits.day! > 0) {
+            number = elapsedTimeUnits.day!
             unit = "day"
         }
-        else if (elapsedTimeUnits.hour > 0) {
-            number = elapsedTimeUnits.hour
+        else if (elapsedTimeUnits.hour! > 0) {
+            number = elapsedTimeUnits.hour!
             unit = "hour"
         }
-        else if (elapsedTimeUnits.minute > 0) {
-            number = elapsedTimeUnits.minute
+        else if (elapsedTimeUnits.minute! > 0) {
+            number = elapsedTimeUnits.minute!
             unit = "minute"
         }
         else  {
-            number = elapsedTimeUnits.second
+            number = elapsedTimeUnits.second!
             unit = "second"
         }
         

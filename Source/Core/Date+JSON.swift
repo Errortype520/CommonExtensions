@@ -1,8 +1,8 @@
 //
-//  NSDate+JSON.swift
+//  Date+JSON.swift
 //  CommonExtensions
 //
-//  Copyright (c) 2014 Joe Burgess
+//  Copyright (c) 2014-2016 Joe Burgess
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 //  documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -20,7 +20,7 @@
 
 import Foundation
 
-public extension NSDate {
+public extension Date {
 
     /**
     * Parses JSON Date and returns an NSDate.
@@ -29,22 +29,22 @@ public extension NSDate {
     *
     * @return NSDate created from JSON Date string.
     */
-    public class func dateFromJSONString(jsonDate:String?) -> NSDate? {
+    public static func date(fromJSONDate jsonDate:String?) -> Date? {
         
         guard let jsonDate = jsonDate else { return nil }
         
         var adjustedDate:String = jsonDate
         
         // Replace offset 'T' with a space
-        adjustedDate = adjustedDate.stringByReplacingOccurrencesOfString("T", withString:" ")
+        adjustedDate = adjustedDate.replacingOccurrences(of: "T", with:" ")
         // Replace zulu 'Z' with timezone (+0000)
-        adjustedDate = adjustedDate.stringByReplacingOccurrencesOfString("Z", withString:"+0000")
+        adjustedDate = adjustedDate.replacingOccurrences(of: "Z", with:"+0000")
         
         // Create the dateformatter we will use to parse the JSON date
-        let dateFormatter:NSDateFormatter = NSDateFormatter()
+        let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZ"
         
-        return dateFormatter.dateFromString(adjustedDate)
+        return dateFormatter.date(from: adjustedDate)
     }
     
 }

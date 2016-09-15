@@ -2,7 +2,7 @@
 //  UIColor+Hex.swift
 //  CommonExtensions
 //
-//  Copyright (c) 2014 Joe Burgess
+//  Copyright (c) 2014-2016 Joe Burgess
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
 //  documentation files (the "Software"), to deal in the Software without restriction, including without limitation
@@ -44,17 +44,17 @@ public extension UIColor {
     *
     * @return UIColor created from HEX
     */
-    public class func colorFromHex(string color:String) -> UIColor {
+    public class func colorFromHex(string color:String) -> UIColor? {
         
         var value:CUnsignedInt = 0
-        let hexString:String = color.stringByReplacingOccurrencesOfString("#", withString:"0x")
+        let hexString:String = color.replacingOccurrences(of: "#", with:"0x")
         
         // If scanner is able to convert the string to UInt
-        if ( NSScanner.localizedScannerWithString(hexString).scanHexInt(&value) ) {
-            return self.colorFromHex( UInt(value) )
+        if ( (Scanner.localizedScanner(with: hexString) as AnyObject).scanHexInt32(&value) ) {
+            return self.colorFromHex(color: UInt(value) )
         }
         
-        // Default return clear color if parsing color fails
-        return UIColor.clearColor()
+        // Return nil if we can't resonably continue
+        return nil
     }
 }
