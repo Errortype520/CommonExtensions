@@ -1,7 +1,7 @@
-CommonExtensions
+CommonExtensions 2.0.0
 ================
 
-Common Extensions for Swift (1.0.0) are a collection of commonly used extensions to existing Swift and UIKit classes. These will be modified, added to and possibly removed as Swift develops as a language, and as I learn more about what Swift has to offer.
+Common Extensions for Swift are a collection of commonly used extensions to existing Swift and UIKit classes. These will be modified, added to and possibly removed as Swift develops as a language, and as I learn more about what Swift has to offer.
 
 *Suggestions and pull requests are __welcomed__ and __encouraged__*.
 
