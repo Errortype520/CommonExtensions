@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  CommonExtensions_test
 //
-//  Created by Joe Burgess on 6/17/14.
-//  Copyright (c) 2014 Joe Burgess. All rights reserved.
+//  Created by Joe Burgess on 6/09/15.
+//  Copyright (c) 2016 Joe Burgess. All rights reserved.
 //
 
 import UIKit
@@ -96,30 +96,30 @@ class ViewController: UIViewController {
     func uiImageResizeTest() {
         
         // Create an image
-        let testImage:UIImage = UIImage(named:"puppy-running.png")!
+        var testImage:UIImage = UIImage(named:"puppy-running.png")!
         
         // Resize height test
-        // testImage = UIImage.resizeWithImage(testImage, height: 50)
+        testImage = UIImage.resize(image: testImage, height: 50)
         
         print("\nImage resized by height")
         
         // Resize width test
-        // testImage = UIImage.resizeWithImage(testImage, width:100)
+        testImage = UIImage.resize(image: testImage, width:100)
         
         print("Image resized by width")
         
         // Resize scale test
-        // testImage = UIImage.resizeWithImage(testImage, scale:0.5)
+        testImage = UIImage.resize(image: testImage, scale:0.5)
         
         print("Image resized by scale")
         
         // Resize rect test
-        // testImage = UIImage.resizeWithImage(testImage, rect:CGRectMake(0, 0, 150, 40))
+        testImage = UIImage.resize(image: testImage, rect:CGRect(x:0, y:0, width:150, height:40))
         
         print("Image resized by rect")
         
         // Crop image test
-        // testImage = UIImage.cropWithImage(testImage, rect: CGRectMake(0, 0, 100, 100))
+        testImage = UIImage.resize(image: testImage, rect: CGRect(x:0, y:0, width:100, height:100))
         
         print("Image cropped to rect")
         

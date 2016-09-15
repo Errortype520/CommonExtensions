@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D8AE87241950B86A00FE0AB6"
+               BlueprintIdentifier = "D860267F1D8B079600F6A046"
                BuildableName = "CommonExtensions_test.app"
                BlueprintName = "CommonExtensions_test"
                ReferencedContainer = "container:CommonExtensions_test.xcodeproj">
@@ -28,21 +28,11 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D8AE87361950B86A00FE0AB6"
-               BuildableName = "CommonExtensions_testTests.xctest"
-               BlueprintName = "CommonExtensions_testTests"
-               ReferencedContainer = "container:CommonExtensions_test.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D8AE87241950B86A00FE0AB6"
+            BlueprintIdentifier = "D860267F1D8B079600F6A046"
             BuildableName = "CommonExtensions_test.app"
             BlueprintName = "CommonExtensions_test"
             ReferencedContainer = "container:CommonExtensions_test.xcodeproj">
@@ -65,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D8AE87241950B86A00FE0AB6"
+            BlueprintIdentifier = "D860267F1D8B079600F6A046"
             BuildableName = "CommonExtensions_test.app"
             BlueprintName = "CommonExtensions_test"
             ReferencedContainer = "container:CommonExtensions_test.xcodeproj">
@@ -84,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "D8AE87241950B86A00FE0AB6"
+            BlueprintIdentifier = "D860267F1D8B079600F6A046"
             BuildableName = "CommonExtensions_test.app"
             BlueprintName = "CommonExtensions_test"
             ReferencedContainer = "container:CommonExtensions_test.xcodeproj">

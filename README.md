@@ -27,32 +27,32 @@ self.view.backgroundColor = UIColor.colorFromHex(string:"#FFFFFF")
 Resize and crop UIImage when you need to manipulate a UIImage, and not just it's UIImageView.
 ```swift
 // Create an image
-var testImage:UIImage = UIImage(named:"puppy-running.png")
+var testImage:UIImage = UIImage(named:"puppy-running.png")!
 
 // Resize the image proportionately with a height
-testImage = UIImage.resizeWithImage(testImage, height: 50)
+testImage = UIImage.resize(image: testImage, height: 50)
 
 // Resize the image proportionately with a width
-testImage = UIImage.resizeWithImage(testImage, width:100)
+testImage = UIImage.resize(image: testImage, width:100)
         
 // Resize the image proportionately with a scale
-testImage = UIImage.resizeWithImage(testImage, scale:0.5)
+testImage = UIImage.resize(image: testImage, scale:0.5)
         
 // Resize the image to fit in rectangle
-testImage = UIImage.resizeWithImage(testImage, rect:CGRectMake(0, 0, 150, 40))
+testImage = UIImage.resize(image: testImage, rect:CGRect(x:0, y:0, width:150, height:40))
         
 // Crop image with rectangle
-testImage = UIImage.cropWithImage(testImage, rect: CGRectMake(0, 0, 100, 100))
+testImage = UIImage.resize(image: testImage, rect: CGRect(x:0, y:0, width:100, height:100))
 ```
 
 ####UIImage+Color
 Creates a UIImage with a solid color. Can specify a image size (Defaults to 1x1).
 ```swift
 // Create a red square image (1x1)
-let redImage:UIImage = UIImage.imageFromColor(UIColor.redColor())
+let redImage:UIImage = UIImage.image(fromColor: UIColor.red)
 
 // Create a blue square image (10x10)
-let blueImage:UIImage = UIImage.imageFromColor(UIColor.blueColor(), imageSize: CGSizeMake(10, 10))
+let blueImage:UIImage = UIImage.image(fromColor:UIColor.blue, imageSize: CGSize(width:10, height:10))
 ```
 
 ####NSDate+Locale
@@ -69,7 +69,7 @@ println("JP Date: "     + now.getJPDate())     // RESULT: JP Date: 2014/07/02
 ####NSDate+JSON
 NSDate+JSON converts JSON String to NSDate.
 ```swift
-var date:NSDate = NSDate.dateFromJSONString("2014-04-25T15:03:21Z")
+var date:Date = Date.date(fromJSONDate:"2014-04-25T15:03:21Z")
 println("JSON Date: " + date.getLocalizedDate() )
 
 // RESULT: JSON Date: 04/25/2014
@@ -79,13 +79,12 @@ println("JSON Date: " + date.getLocalizedDate() )
 NSDate+Elapsed contains methods to get amount of time between two dates (DateComponenets, or string representing time between [Good for blog entries]).
 ```swift
 // Calendar and offset components
-let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+let gregorian:NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
 var offsetComponents = NSDateComponents()
 offsetComponents.month = -1
 
-var fromDate:NSDate = gregorian.dateByAddingComponents(offsetComponents, toDate:now,
-                                                       options:.MatchFirst)
-println("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( fromDate, toDate:now ))
+var fromDate:Date = gregorian.date(byAdding: offsetComponents as DateComponents, to:now, options:.matchFirst)!
+println("Elapsed Time (month): " + Date.elapsedTime(fromDate: fromDate, toDate:now ) )
 
 // RESEULT: Elapsed Time (month): Created 1 month ago
 ```
@@ -93,7 +92,7 @@ println("Elapsed Time (month): " + NSDate.elapsedTimeFromDate( fromDate, toDate:
 
 ####License
 
-Copyright (c) 2014 Joe Burgess
+Copyright (c) 2014-2016 Joe Burgess
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
