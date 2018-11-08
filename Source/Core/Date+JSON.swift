@@ -33,18 +33,20 @@ public extension Date {
         
         guard let jsonDate = jsonDate else { return nil }
         
-        var adjustedDate:String = jsonDate
+        let parser1 = DateFormatter()
+        parser1.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
-        // Replace offset 'T' with a space
-        adjustedDate = adjustedDate.replacingOccurrences(of: "T", with:" ")
-        // Replace zulu 'Z' with timezone (+0000)
-        adjustedDate = adjustedDate.replacingOccurrences(of: "Z", with:"+0000")
+        let parser2 = DateFormatter()
+        parser2.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
-        // Create the dateformatter we will use to parse the JSON date
-        let dateFormatter:DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ssZZZZ"
+        let parsers = [parser1, parser2]
         
-        return dateFormatter.date(from: adjustedDate)
+        for parser in parsers {
+            guard let result = parser.date(from: jsonDate) else { continue }
+            return result
+        }
+        
+        return nil
     }
     
 }

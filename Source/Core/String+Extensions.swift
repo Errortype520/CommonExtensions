@@ -22,10 +22,6 @@ import Foundation
 
 extension String {
     
-    var length: Int {
-        return self.characters.count
-    }
-    
     func strip() -> String {
         return self.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
     }
